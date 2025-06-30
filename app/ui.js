@@ -321,8 +321,6 @@ const UI = {
             .addEventListener('change', UI.clipboardSend);
         document.getElementById("noVNC_clipboard_clear_button")
             .addEventListener('click', UI.clipboardClear);
-        document.getElementById("noVNC_clipboard_send_button")
-            .addEventListener('click', UI.clipboardSend);
     },
 
     // Add a call to save settings when the element changes,
