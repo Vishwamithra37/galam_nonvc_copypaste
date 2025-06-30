@@ -26,7 +26,7 @@ import KeyTable from "./input/keysym.js";
 import USKeyTable from "./input/uskeysym.js";
 import XtScancode from "./input/xtscancodes.js";
 import { encodings } from "./encodings.js";
-import "./util/polyfill.js";
+//import "./util/polyfill.js";
 
 import RawDecoder from "./decoders/raw.js";
 import CopyRectDecoder from "./decoders/copyrect.js";
