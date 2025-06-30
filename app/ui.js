@@ -319,8 +319,6 @@ const UI = {
             .addEventListener('click', UI.toggleClipboardPanel);
         document.getElementById("noVNC_clipboard_text")
             .addEventListener('change', UI.clipboardSend);
-        document.getElementById("noVNC_clipboard_clear_button")
-            .addEventListener('click', UI.clipboardClear);
     },
 
     // Add a call to save settings when the element changes,
