@@ -23,6 +23,7 @@ import Cursor from "./util/cursor.js";
 import Websock from "./websock.js";
 import DES from "./des.js";
 import KeyTable from "./input/keysym.js";
+import USKeyTable from "./input/uskeysym.js";
 import XtScancode from "./input/xtscancodes.js";
 import { encodings } from "./encodings.js";
 import "./util/polyfill.js";
@@ -470,6 +471,37 @@ export default class RFB extends EventTargetMixin {
             Log.Info("Sending keysym (" + (down ? "down" : "up") + "): " + keysym);
             RFB.messages.keyEvent(this._sock, keysym, down ? 1 : 0);
         }
+    }
+
+    // Send text by simulating keyboard typing character by character
+    sendText(text) {
+        if (this._rfbConnectionState !== 'connected' || this._viewOnly) { return; }
+
+        const sleep = (time) => {
+            return new Promise(resolve => setTimeout(resolve, time));
+        };
+
+        const keyboardTypeText = async () => {
+            for (let i = 0; i < text.length; i++) {
+                const character = text.charAt(i);
+                let charCode = USKeyTable[character] || false;
+                
+                if (charCode) {
+                    this.sendKey(charCode, character, true);
+                    this.sendKey(charCode, character, false);
+                } else {
+                    // For characters not in USKeyTable, use char code directly
+                    charCode = text.charCodeAt(i);
+                    this.sendKey(KeyTable.XK_Shift_L, "ShiftLeft", true);
+                    this.sendKey(charCode, character, true);
+                    this.sendKey(charCode, character, false);
+                    this.sendKey(KeyTable.XK_Shift_L, "ShiftLeft", false);
+                }
+                await sleep(25);
+            }
+        };
+
+        keyboardTypeText();
     }
 
     focus() {

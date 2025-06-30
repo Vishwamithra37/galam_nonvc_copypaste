@@ -321,6 +321,8 @@ const UI = {
             .addEventListener('change', UI.clipboardSend);
         document.getElementById("noVNC_clipboard_clear_button")
             .addEventListener('click', UI.clipboardClear);
+        document.getElementById("noVNC_clipboard_send_button")
+            .addEventListener('click', UI.clipboardSend);
     },
 
     // Add a call to save settings when the element changes,
@@ -944,6 +946,8 @@ const UI = {
             UI.closeClipboardPanel();
         } else {
             UI.openClipboardPanel();
+            setTimeout(() => document
+                .getElementById('noVNC_clipboard_text').focus(), 100);
         }
     },
 
@@ -955,13 +959,15 @@ const UI = {
 
     clipboardClear() {
         document.getElementById('noVNC_clipboard_text').value = "";
-        UI.rfb.clipboardPasteFrom("");
+        document.getElementById('noVNC_clipboard_text').focus();
     },
 
     clipboardSend() {
         const text = document.getElementById('noVNC_clipboard_text').value;
         Log.Debug(">> UI.clipboardSend: " + text.substr(0, 40) + "...");
-        UI.rfb.clipboardPasteFrom(text);
+        UI.rfb.sendText(text);
+        UI.closeClipboardPanel();
+        UI.focusOnConsole();
         Log.Debug("<< UI.clipboardSend");
     },
 
@@ -1600,22 +1606,25 @@ const UI = {
 
     sendKey(keysym, code, down) {
         UI.rfb.sendKey(keysym, code, down);
+        UI.focusOnConsole();
+        // fade out the controlbar to highlight that
+        // the focus has been moved to the screen
+        UI.idleControlbar();
+    },
 
-        // Move focus to the screen in order to be able to use the
-        // keyboard right after these extra keys.
-        // The exception is when a virtual keyboard is used, because
-        // if we focus the screen the virtual keyboard would be closed.
-        // In this case we focus our special virtual keyboard input
-        // element instead.
+    // Move focus to the screen in order to be able to use the
+    // keyboard right after these extra keys.
+    // The exception is when a virtual keyboard is used, because
+    // if we focus the screen the virtual keyboard would be closed.
+    // In this case we focus our special virtual keyboard input
+    // element instead.
+    focusOnConsole() {
         if (document.getElementById('noVNC_keyboard_button')
             .classList.contains("noVNC_selected")) {
             document.getElementById('noVNC_keyboardinput').focus();
         } else {
             UI.rfb.focus();
         }
-        // fade out the controlbar to highlight that
-        // the focus has been moved to the screen
-        UI.idleControlbar();
     },
 
 /* ------^-------
