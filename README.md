@@ -8,10 +8,10 @@ This guide explains how to add working clipboard copy-paste functionality to NoV
 
 The following files have been modified to enable clipboard functionality:
 
-- **core/rfb.js** - Core RFB protocol handler modifications
-- **core/input/uskeysym.js** - US keyboard symbol mapping enhancements
-- **app/ui.js** - User interface modifications for clipboard controls
-- **app/webutils.js** - Web utility functions for clipboard operations
+- [**core/rfb.js** ](https://github.com/Vishwamithra37/galam_nonvc_copypaste/blob/CopyPasteWorking_NoVnc_OpenStack/core/rfb.js)- Core RFB protocol handler modifications
+- [**core/input/uskeysym.js**](https://github.com/Vishwamithra37/galam_nonvc_copypaste/blob/CopyPasteWorking_NoVnc_OpenStack/core/input/keysym.js) - US keyboard symbol mapping enhancements
+- [**app/ui.js**](https://github.com/Vishwamithra37/galam_nonvc_copypaste/blob/CopyPasteWorking_NoVnc_OpenStack/app/ui.js) - User interface modifications for clipboard controls
+- [**app/webutils.js**](https://github.com/Vishwamithra37/galam_nonvc_copypaste/blob/CopyPasteWorking_NoVnc_OpenStack/app/webutil.js) - Web utility functions for clipboard operations
 
 ## Source Repository
 
@@ -29,4 +29,9 @@ nova_novncproxy_extra_volumes:
   - "/etc/kolla/config/novnc/core/input/uskeysym.js:/usr/share/novnc/core/input/uskeysym.js:ro"
   - "/etc/kolla/config/novnc/app/ui.js:/usr/share/novnc/app/ui.js:ro"
   - "/etc/kolla/config/novnc/app/webutils.js:/usr/share/novnc/app/webutils.js:ro"
+```
+
+And then
+```sh
+kolla-ansible -i <inventory> reconfigure
 ```
