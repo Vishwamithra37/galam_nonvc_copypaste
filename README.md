@@ -13,6 +13,12 @@ The following files have been modified to enable clipboard functionality:
 - [**app/ui.js**](https://github.com/Vishwamithra37/galam_nonvc_copypaste/blob/CopyPasteWorking_NoVnc_OpenStack/app/ui.js) - User interface modifications for clipboard controls
 - [**app/webutils.js**](https://github.com/Vishwamithra37/galam_nonvc_copypaste/blob/CopyPasteWorking_NoVnc_OpenStack/app/webutil.js) - Web utility functions for clipboard operations
 
+## Copy the above files
+
+- Copy the above files and save them in /etc/kolla/novnc/<filepath>
+
+Note: You can place these anywhere, you just need to give the correct path while adding in globals.yaml
+
 ## Source Repository
 
 All modified files can be downloaded from: [https://github.com/Vishwamithra37/galam_nonvc_copypaste/tree/CopyPasteWorking_NoVnc_OpenStack](https://github.com/Vishwamithra37/galam_nonvc_copypaste/tree/CopyPasteWorking_NoVnc_OpenStack)
