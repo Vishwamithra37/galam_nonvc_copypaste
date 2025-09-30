@@ -15,7 +15,7 @@ The following files have been modified to enable clipboard functionality:
 
 ## Copy the above files
 
-- Copy the above files and save them in /etc/kolla/novnc/<filepath>
+- Copy the above files and save them in /etc/kolla/config/novnc/<filepath>
 
 Note: You can place these anywhere, you just need to give the correct path while adding in globals.yaml
 
