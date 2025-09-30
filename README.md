@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide explains how to add working clipboard copy-paste functionality to NoVNC in OpenStack deployments using Kolla-Ansible. The solution involves modifying specific NoVNC files to enable bidirectional clipboard operations between your local machine and the remote desktop.
+This guide explains how to add working clipboard copy-paste functionality to NoVNC in OpenStack deployments using Kolla-Ansible. The solution involves modifying specific NoVNC files to enable bidirectional clipboard operations between your local machine and the remote desktop. Probably may also work with proxmox.
 
 ## Modified Files
 
