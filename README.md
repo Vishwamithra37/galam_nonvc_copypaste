@@ -34,7 +34,7 @@ nova_novncproxy_extra_volumes:
   - "/etc/kolla/config/novnc/core/rfb.js:/usr/share/novnc/core/rfb.js"
   - "/etc/kolla/config/novnc/core/input/uskeysym.js:/usr/share/novnc/core/input/uskeysym.js"
   - "/etc/kolla/config/novnc/app/ui.js:/usr/share/novnc/app/ui.js"
-  - "/etc/kolla/config/novnc/app/webutils.js:/usr/share/novnc/app/webutils.js"
+  - "/etc/kolla/config/novnc/app/webutil.js:/usr/share/novnc/app/webutil.js"
 ```
 
 And then
