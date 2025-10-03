@@ -11,7 +11,7 @@ The following files have been modified to enable clipboard functionality:
 - [**core/rfb.js** ](https://github.com/Vishwamithra37/galam_nonvc_copypaste/blob/CopyPasteWorking_NoVnc_OpenStack/core/rfb.js)- Core RFB protocol handler modifications
 - [**core/input/uskeysym.js**](https://github.com/Vishwamithra37/galam_nonvc_copypaste/blob/CopyPasteWorking_NoVnc_OpenStack/core/input/keysym.js) - US keyboard symbol mapping enhancements
 - [**app/ui.js**](https://github.com/Vishwamithra37/galam_nonvc_copypaste/blob/CopyPasteWorking_NoVnc_OpenStack/app/ui.js) - User interface modifications for clipboard controls
-- [**app/webutils.js**](https://github.com/Vishwamithra37/galam_nonvc_copypaste/blob/CopyPasteWorking_NoVnc_OpenStack/app/webutil.js) - Web utility functions for clipboard operations
+- [**app/webutil.js**](https://github.com/Vishwamithra37/galam_nonvc_copypaste/blob/CopyPasteWorking_NoVnc_OpenStack/app/webutil.js) - Web utility functions for clipboard operations
 
 ## Copy the above files
 
